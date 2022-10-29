@@ -17,7 +17,7 @@ app.use(express.json());
 route.post('/:data', (req: Request, res: Response) => {
     const data = req.params.data;
     var tx: Transaction;
-    
+
     arweave.createTransaction({ data: data }, wallet)
     .then((transaction) => {
         tx = transaction;
@@ -48,6 +48,6 @@ route.get('/:txid', (req: Request, res: Response) => {
 app.use(route);
 
 
-app.listen(3000, () => {
-    console.log(`⚡️[server]: Server is running at http://localhost:3000`);
+app.listen(3001, () => {
+    console.log(`⚡️[server]: Server is running at http://localhost:3001`);
 });
