@@ -2,6 +2,7 @@ import express, { Express, Request, Response, Router } from 'express';
 import Arweave from 'arweave';
 import Transaction from 'arweave/node/lib/transaction';
 import wallet from './../wallet.json';
+import cors from 'cors';
 
 const app: Express = express();
 const route: Router = Router();
@@ -13,6 +14,7 @@ const arweave = Arweave.init({
 });
 
 app.use(express.json());
+app.use(cors({origin:true}));
 
 route.post('/:data', (req: Request, res: Response) => {
     const data = req.params.data;
