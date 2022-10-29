@@ -3,6 +3,7 @@ import Arweave from 'arweave';
 import Transaction from 'arweave/node/lib/transaction';
 import wallet from './../wallet.json';
 import cors from 'cors';
+import morgan from 'morgan';
 
 const app: Express = express();
 const route: Router = Router();
@@ -13,6 +14,7 @@ const arweave = Arweave.init({
     logging: false,
 });
 
+app.use(morgan('common'))
 app.use(express.json());
 app.use(cors({origin:true}));
 
